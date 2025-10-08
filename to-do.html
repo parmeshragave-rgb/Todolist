@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Task Manager</h1>
+        </header>
+
+        <!-- Task Input Form -->
+        <section class="task-form">
+            <h2>Add New Task</h2>
+            <form id="taskForm">
+                <div class="form-group">
+                    <input type="text" id="taskTitle" placeholder="Task Title" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="taskDescription" placeholder="Task Description"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <select id="taskPriority" required>
+                            <option value="">Select Priority</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="taskDueDate" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Add Task</button>
+            </form>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters">
+            <div class="filter-group">
+                <label>Status:</label>
+                <select id="statusFilter">
+                    <option value="all">All</option>
+                    <option value="active">Active</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Priority:</label>
+                <select id="priorityFilter">
+                    <option value="all">All</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Sort By:</label>
+                <select id="sortBy">
+                    <option value="dueDate">Due Date</option>
+                    <option value="priority">Priority</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Task List -->
+        <section class="task-list">
+            <div class="task-list-header">
+                <h2>Tasks</h2>
+                <button id="clearCompleted" class="btn-secondary">Clear Completed</button>
+            </div>
+            <div id="taskContainer"></div>
+        </section>
+    </div>
+
+    <!-- Task Template -->
+    <template id="taskTemplate">
+        <div class="task-item">
+            <div class="task-header">
+                <div class="task-checkbox-title">
+                    <input type="checkbox" class="task-checkbox">
+                    <h3 class="task-title"></h3>
+                </div>
+                <div class="task-actions">
+                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+            <div class="task-details">
+                <p class="task-description"></p>
+                <div class="task-meta">
+                    <span class="task-priority"></span>
+                    <span class="task-due-date"></span>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
